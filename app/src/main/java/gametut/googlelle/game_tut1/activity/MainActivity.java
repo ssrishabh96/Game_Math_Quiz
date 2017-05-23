@@ -17,26 +17,32 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import gametut.googlelle.game_tut1.R;
 import gametut.googlelle.game_tut1.activity.Main2Activity;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText et;
-    SharedPreferences prefs;
-    SharedPreferences.Editor editor;
-    RelativeLayout showBackground_rl;
+    private static final String TAG = "MainActivity";
+    private AdView mAdView;
 
-    String dataName = "MyData";
-    String intName = "MyScore";
-    String intName1 = "MyLevel";
-    String unamedefault="username";
-    String uname;
-    Button save;
-    TextView tv;
+    private EditText et;
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor editor;
+    private RelativeLayout showBackground_rl;
+    private String dataName = "MyData";
+    private String intName = "MyScore";
+    private String intName1 = "MyLevel";
+    private String unamedefault="username";
+    private String uname;
+    private Button save;
+    private TextView tv;
 
-    private int height, width;
-    int defaultInt = 0;
+    private int defaultInt = 0;
+
+
     //both activities can see this
     public static int hiScore;
     public static int hillevel;
@@ -45,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        loadAds();
+
         tv=(TextView)findViewById(R.id.textView4);
         et=(EditText) findViewById(R.id.username);
         save=(Button) findViewById(R.id.savebtn);
@@ -90,16 +99,19 @@ public class MainActivity extends AppCompatActivity {
                 save.setVisibility(View.VISIBLE);}
                 else
                 {
-
-
                         et.setVisibility(View.INVISIBLE);
                         save.setVisibility(View.INVISIBLE);
                 }
-
             }
         });
 
 
+    }
+
+    private void loadAds() {
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override
