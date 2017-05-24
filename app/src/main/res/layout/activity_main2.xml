@@ -1,273 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c0cfd9"
-    android:weightSum="8"
-    android:orientation="vertical"
-
+    android:background="@android:color/background_light"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_weight="1">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_weight="1"
-        android:layout_gravity="left|center_vertical"
-
-        android:text="QUESTION:"
-
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textIsSelectable="false"
-        android:textSize="26sp"
-        android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="2"
-
-        android:layout_height="0dp"
-
-        >
-
-    <TextView
-        android:id="@+id/operanda"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_marginLeft="5dp"
-        android:text="9"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="40sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/operator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-
-        android:layout_weight="1"
-
-        android:gravity="center"
-        android:text="*"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="55sp"
-        android:textStyle="bold"
-         />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
 
         <TextView
-            android:id="@+id/operandb"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-
-            android:layout_weight="1"
-
             android:gravity="center"
-            android:text="9"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="40sp"
-            android:textStyle="bold"
-          />
-    </LinearLayout>
+            android:padding="5dp"
+            android:text="QUESTION:"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/holo_green_dark"
+            android:textIsSelectable="false"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-
-
-    <LinearLayout
-        android:id="@+id/questions"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="2"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/ansrow1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="2">
-
-
-            <Button
-                android:id="@+id/ansa"
-                style="@style/TextAppearance.AppCompat.Button"
-                android:layout_width="0dp"
-
-                android:layout_height="fill_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/red_button"
-                android:text="A"
-                android:textColor="@android:color/white"
-                android:textSize="35sp"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/ansb"
-                style="@style/TextAppearance.AppCompat.Button"
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_margin="5dp"
-
-                android:layout_weight="1"
-                android:background="@drawable/red_button"
-                android:text="B"
-                android:textColor="@android:color/white"
-                android:textSize="35sp"
-                android:textStyle="bold" />
-
-
-        </LinearLayout></LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/questions2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-
-        android:layout_marginBottom="10sp"
-
-        android:orientation="vertical">
-        <LinearLayout
-            android:id="@+id/ansrow2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-
-            android:orientation="horizontal"
-            android:layout_weight="2">
-
-
-            <Button
-                android:id="@+id/ansc"
-                style="@style/TextAppearance.AppCompat.Button"
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_margin="5dp"
-
-                android:layout_weight="1"
-                android:background="@drawable/blue_button"
-                android:text="C"
-                android:textColor="@android:color/white"
-                android:textSize="35sp"
-                android:textStyle="bold" />
-
-
-            <Button
-                android:id="@+id/ansd"
-                style="@style/TextAppearance.AppCompat.Button"
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/blue_button"
-                android:text="D"
-                android:textColor="@android:color/white"
-                android:textSize="35sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+
             android:orientation="horizontal"
 
             >
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:id="@+id/operanda"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:layout_gravity="center"
-                android:text="Score:"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="9"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="20dp"
+                android:textColor="@android:color/black"
+                android:textSize="32sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/score"
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:padding="4dp"
-                android:layout_weight="1"
-                android:text="9999"
+                android:id="@+id/operator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/round_shape"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="*"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="30sp"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
+
             <TextView
-                android:id="@+id/textView2"
-                android:layout_width="0dp"
+                android:id="@+id/operandb"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_weight="1"
-                android:padding="12dp"
-                android:text="Level:"
+
+                android:gravity="center"
+                android:text="9"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-
-                android:textSize="20sp"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:id="@+id/level"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="fill_parent"
-                android:padding="12dp"
-                android:text="999"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="25dp"
+                android:textColor="@android:color/black"
+                android:textSize="32sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
 
 
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Your Options Are"
+            android:textColor="#0eeca6"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/ansa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/blue_button"
+            android:gravity="left|center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:text="A"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/ansb"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+
+            android:layout_marginRight="20dp"
+            android:background="@drawable/blue_button"
+            android:gravity="left|center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:text="B"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/ansc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+
+            android:layout_marginRight="20dp"
+            android:background="@drawable/blue_button"
+            android:gravity="left|center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:text="C"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/ansd"
+            style="@style/TextAppearance.AppCompat.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/blue_button"
+            android:gravity="left|center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:text="D"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+
+
+
     </LinearLayout>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            android:text="Score:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:text="Level:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+
+            android:textSize="22sp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/level"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:text="1"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 
-
-
-
-
-</LinearLayout>
+</RelativeLayout>

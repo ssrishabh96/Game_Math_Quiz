@@ -4,12 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
-    <solid android:color="#eee"/>
 
-    <size android:width="44dp" android:height="44dp"/>
+    <size android:width="90dp" android:height="90dp"/>
 
-    <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp"/>
-
-    <corners android:radius="8dp"/>
+    <corners android:radius="1dp"/>
 
 </shape>

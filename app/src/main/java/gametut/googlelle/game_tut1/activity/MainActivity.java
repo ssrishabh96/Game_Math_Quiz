@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private Button save;
     private TextView tv;
 
-    private int defaultInt = 0;
+    private int defaultInt = 1;
 
 
     //both activities can see this
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.i(TAG, "onCreate: fired ");
+
 
         loadAds();
 
@@ -80,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         prefs = getSharedPreferences(dataName, MODE_PRIVATE);
 
         hillevel= prefs.getInt(intName1, defaultInt);
-        hiScore = prefs.getInt(intName, defaultInt);
+        hiScore = prefs.getInt(intName, 0);
         uname=prefs.getString(unamedefault, unamedefault);
         Toast.makeText(this,"Welcome "+uname,Toast.LENGTH_LONG).show();
 
@@ -109,21 +112,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadAds() {
+        Log.i(TAG, "loadAds: fired ");
+
         mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }
 
     @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         Toast.makeText(this,"Welcome "+uname,Toast.LENGTH_LONG).show();
-
     }
 
     @Override
@@ -132,14 +131,17 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    public void start_play(View v)
-    {
+    public void start_play(View v){
+        Log.i(TAG, "start_play: fired ");
+
         Intent i=new Intent(this,Main2Activity.class);
         startActivity(i);
 
     }
-    public void save(View v)
-    {
+
+    public void save(View v){
+        Log.i(TAG, "save: fired ");
+
         uname=et.getText().toString();
         if(uname.length()>1)
         {  editor.putString(unamedefault,uname);

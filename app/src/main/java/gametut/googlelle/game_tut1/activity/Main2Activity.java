@@ -39,12 +39,12 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     int answerGiven = 0;
     TextView score, level;
 
-    Button a, b, c,d;
+    Button a, b, c, d;
     TextView operanda, operator, operandb;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0,0,0,"hello");
+            menu.add(0,0,0,"hello");
 
         return true;
     }
