@@ -2,6 +2,7 @@ package gametut.googlelle.game_tut1.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -54,7 +55,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        prefs=getSharedPreferences(dataName,MODE_PRIVATE);
+        prefs= PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
         hiScore = prefs.getInt(intName, defaultInt);
         hiLevel = prefs.getInt(intName1, defaultInt);
