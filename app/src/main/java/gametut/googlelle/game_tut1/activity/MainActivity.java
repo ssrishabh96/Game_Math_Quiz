@@ -1,5 +1,6 @@
 package gametut.googlelle.game_tut1.activity;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,7 +9,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -22,6 +23,7 @@ import com.google.android.gms.ads.AdView;
 import gametut.googlelle.game_tut1.R;
 import gametut.googlelle.game_tut1.activity.activity.Settings;
 import gametut.googlelle.game_tut1.activity.utility.CustomDialog;
+import gametut.googlelle.game_tut1.activity.utility.CustomGameOverDialog;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -117,7 +119,12 @@ public class MainActivity extends AppCompatActivity {
         CustomDialog customizeDialog = new CustomDialog(this);
         customizeDialog.setTitle("Author:");
         customizeDialog.setMessage("Rishabh Agrawal");
-        customizeDialog.show();
+        //customizeDialog.show();
+
+        CustomGameOverDialog dialog = new CustomGameOverDialog(this);
+        dialog.setHighScore("55");
+        dialog.show();
+
     }
 
     @Override
