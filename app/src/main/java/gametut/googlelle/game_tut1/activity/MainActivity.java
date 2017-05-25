@@ -1,5 +1,6 @@
 package gametut.googlelle.game_tut1.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
@@ -7,12 +8,11 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,15 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private AdView mAdView;
-
     private SharedPreferences prefs;
-    private String dataName = "MyData";
     private String intName = "MyScore";
     private String intName1 = "MyLevel";
     private String usernameKey = "", usernameDefault = "";
     private String username = "";
-
-
     private int defaultInt = 1;
 
     //both activities can see this
@@ -54,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         username = prefs.getString(usernameKey, usernameDefault);
         Toast.makeText(this, "Welcome " + username, Toast.LENGTH_LONG).show();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
@@ -69,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
         hillevel = prefs.getInt(intName1, defaultInt);
         hiScore = prefs.getInt(intName, 0);
 
-//        AssetManager am = getApplicationContext().getAssets();
-//        Typeface tf = Typeface.createFromAsset(am, "fonts/Roboto-Regular.ttf");
-//        TextView playButton= (TextView) findViewById(R.id.appTitle);
-//        playButton.setTypeface(tf);
+        AssetManager am = getApplicationContext().getAssets();
+        Typeface tf = Typeface.createFromAsset(am, "fonts/satisfy.ttf");
+        TextView playButton= (TextView) findViewById(R.id.appTitle);
+        playButton.setTypeface(tf);
 
     }
 
@@ -84,18 +79,11 @@ public class MainActivity extends AppCompatActivity {
         mAdView.loadAd(adRequest);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-
     public void start_play(View v) {
         Log.i(TAG, "start_play: fired ");
         Intent i = new Intent(this, Main2Activity.class);
         startActivity(i);
     }
-
 
     public void showHighScores(View view) {
 
@@ -131,4 +119,29 @@ public class MainActivity extends AppCompatActivity {
         customizeDialog.setMessage("Rishabh Agrawal");
         customizeDialog.show();
     }
+
+    @Override
+    public void onBackPressed(){
+        Log.i(TAG, "onBackPressed: fired ");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getResources().getString(R.string.app_name)+": QUIT?");
+        builder.setMessage("Are you sure you wanna leave the game?");
+
+        builder.setPositiveButton("Yes, I Quit", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+        builder.setNegativeButton("No, I Wanna Continue", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
 }
