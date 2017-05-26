@@ -24,7 +24,8 @@ public class CustomGameOverDialog extends Dialog implements View.OnClickListener
     private View v = null;
     private Context mContext;
 
-    private Button exitButton, mainMenu, replay;
+    private Button exitButton, mainMenu;
+    public  Button replay;
 
     public CustomGameOverDialog(@NonNull Context mContext) {
         super(mContext);
@@ -39,21 +40,21 @@ public class CustomGameOverDialog extends Dialog implements View.OnClickListener
 
         exitButton.setOnClickListener(this);
         mainMenu.setOnClickListener(this);
-        replay.setOnClickListener(this);
 
     }
+
+
+
 
     public void setHighScore(String score) {
 
         TextView textview = (TextView) findViewById(R.id.scoreGameOverDialog);
 
         if (score.isEmpty() || score == null) {
-            textview.setText("SCORE: 0");
-        } else {
-            textview.setText("SCORE: "+score);
-
-
+            score="0";
         }
+            textview.setText("You Scored: "+score);
+
     }
 
     @Override
@@ -78,10 +79,6 @@ public class CustomGameOverDialog extends Dialog implements View.OnClickListener
             ((Activity) mContext).finish();
 
 
-        }else if(view.getId()==R.id.replayButtonGameOverDialog){
-
-
         }
-
     }
 }

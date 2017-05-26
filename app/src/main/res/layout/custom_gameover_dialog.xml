@@ -29,7 +29,7 @@
 
     <TextView
         android:id="@+id/scoreGameOverDialog"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
@@ -47,7 +47,7 @@
         android:layout_marginBottom="8dp"
         android:drawableLeft="@mipmap/replay"
         android:gravity="center"
-        android:text="Replay" />
+        android:text="Play Again" />
 
     <Button
         android:id="@+id/mainMenuGameoverDialogButton"

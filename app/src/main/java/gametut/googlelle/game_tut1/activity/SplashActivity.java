@@ -8,7 +8,9 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.BounceInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
 import com.sdsmdg.harjot.rotatingtext.RotatingTextWrapper;
@@ -18,7 +20,7 @@ import gametut.googlelle.game_tut1.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static final long SPLASH_TIME = 2000;
+    private static final long SPLASH_TIME = 1000;
     public static final String TAG=SplashActivity.class.getSimpleName();
     private RotatingTextWrapper rotatingTextWrapper;
     private Rotatable rotatable;
@@ -42,12 +44,28 @@ public class SplashActivity extends AppCompatActivity {
         TextView playButton= (TextView) findViewById(R.id.splashTitle);
         playButton.setTypeface(tf);
 
-        RotatingTextWrapper rotatingTextWrapper = (RotatingTextWrapper) findViewById(R.id.custom_switcher);
-        rotatingTextWrapper.setSize(35);
-        Rotatable rotatable = new Rotatable(Color.parseColor("#FFA036"), 1000, "Word", "Word01", "Word02");
-        rotatable.setSize(35);
-        rotatable.setAnimationDuration(500);
-        rotatingTextWrapper.setContent("This is ?", rotatable);
+
+//        Typeface typeface = Typeface.createFromAsset(am, "fonts/Raleway-Light.ttf");
+//        Typeface typeface2 = Typeface.createFromAsset(am, "fonts/Reckoner_Bold.ttf");
+//
+//        RotatingTextWrapper rotatingTextWrapper = (RotatingTextWrapper) findViewById(R.id.custom_switcher);
+//        rotatingTextWrapper.setSize(35);
+//        rotatingTextWrapper.setTypeface(typeface2);
+//
+//        Rotatable rotatable = new Rotatable(Color.parseColor("#FFA036"), 500, "FAST", "QUICK", "GENIUS");
+//        rotatable.setSize(35);
+//        rotatable.setTypeface(typeface);
+//        rotatable.setInterpolator(new AccelerateInterpolator());
+//        rotatable.setAnimationDuration(500);
+//
+//        Rotatable rotatable2 = new Rotatable(Color.parseColor("#123456"), 500, "Word03", "Word04", "Word05");
+//        rotatable2.setSize(25);
+//        rotatable2.setTypeface(typeface);
+//        rotatable2.setInterpolator(new DecelerateInterpolator());
+//        rotatable2.setAnimationDuration(500);
+//
+//        rotatingTextWrapper.setContent("BE ? and ?", rotatable, rotatable2);
+
     }
 
     private class Asynchronous extends AsyncTask{
@@ -77,6 +95,8 @@ public class SplashActivity extends AppCompatActivity {
 //            Pass your loaded data here using Intent
 //            intent.putExtra("data_key", "");
             startActivity(intent);
+            System.gc();
+
             finish();
         }
     }

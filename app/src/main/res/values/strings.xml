@@ -4,6 +4,7 @@
     <string name="title_activity_main2">PlayActivity</string>
 
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_ad_unit_id2">ca-app-pub-3940256099942544/6300978111</string>
     <string name="flexible_title">Title</string>
     <string name="notification_tone_key">notification_tone_key</string>
 

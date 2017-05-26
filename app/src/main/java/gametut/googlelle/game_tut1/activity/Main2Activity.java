@@ -1,61 +1,57 @@
 package gametut.googlelle.game_tut1.activity;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 import java.util.Random;
 
 import gametut.googlelle.game_tut1.R;
+import gametut.googlelle.game_tut1.activity.utility.CustomGameOverDialog;
+import gametut.googlelle.game_tut1.activity.utility.CustomPauseDialog;
 
 public class Main2Activity extends AppCompatActivity implements View.OnClickListener {
 
 
-    SharedPreferences prefs;
-    SharedPreferences.Editor editor;
-    String dataName = "MyData";
-    String intName = "MyScore";
-    String intName1 = "MyLevel";
+    private static final String TAG = "GameScreen";
+    private AdView mAdView;
 
-    int defaultInt = 0;
-    int hiScore,hiLevel;
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor editor;
+    private String intName = "MyScore";
+    private String intName1 = "MyLevel";
 
-    int currentScore = 0;
-    int currentLevel = 1;
-    int correctAnswer ;
-    Random randInt ;
-
-    String operandstr;
-
-    int answerGiven = 0;
-    TextView score, level;
-
-    Button a, b, c, d;
-    TextView operanda, operator, operandb;
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-            menu.add(0,0,0,"hello");
-
-        return true;
-    }
+    private int defaultInt = 0;
+    private int hiScore, hiLevel;
+    private int currentScore = 0;
+    private int currentLevel = 1;
+    private int correctAnswer;
+    private Random randInt;
+    private String operandstr;
+    private int answerGiven = 0;
+    private TextView score, level;
+    private Button a, b, c, d;
+    private TextView operanda, operator, operandb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        Log.i(TAG, "onCreate: fired ");
+        loadAds();
 
-        prefs= PreferenceManager.getDefaultSharedPreferences(this);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
         hiScore = prefs.getInt(intName, defaultInt);
         hiLevel = prefs.getInt(intName1, defaultInt);
@@ -63,6 +59,13 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         //if not available our default string
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        init();
+
+    }
+
+    private void init() {
+        Log.i(TAG, "init: fired ");
 
         operanda = (TextView) findViewById(R.id.operanda);
         operandb = (TextView) findViewById(R.id.operandb);
@@ -80,33 +83,34 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         d.setOnClickListener(this);
 
 
-
         randInt = new Random();
         int opeartion = randInt.nextInt(3);
 
         switch (opeartion) {
             case 0:
-                operandstr="+";
+                operandstr = "+";
                 break;
 
             case 1:
-                operandstr="*";
+                operandstr = "*";
                 break;
 
             case 2:
-                operandstr="-";
+                operandstr = "-";
                 break;
         }
         operanda.setText(operandstr);
         setQuestion();
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        finish();
+    private void loadAds() {
+        Log.i(TAG, "loadAds: fired ");
+
+        mAdView = (AdView) findViewById(R.id.adViewGameScreen);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
-    
+
     @Override
     public void onClick(View view) {
 
@@ -144,9 +148,12 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     }
 
     void setQuestion() {
+
+        Log.i(TAG, "Setting the Question: "+currentLevel);
         int numberRange = currentLevel * 8;
+
         int partA = randInt.nextInt(numberRange);
-        partA++;//don't want a zero value
+        partA+=2;//don't want a zero value
         int partB = randInt.nextInt(numberRange);
         partB++;
 
@@ -155,19 +162,19 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         switch (opeartion) {
             case 0:
                 operator.setText("+");
-                operandstr="+";
+                operandstr = "+";
                 correctAnswer = partA + partB;
                 break;
 
             case 1:
                 operator.setText("*");
-                operandstr="*";
+                operandstr = "*";
                 correctAnswer = partA * partB;
                 break;
 
             case 2:
                 operator.setText("-");
-                operandstr="-";
+                operandstr = "-";
                 correctAnswer = partA - partB;
                 break;
         }
@@ -212,56 +219,97 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         }
 
 
-
-
     }
 
     boolean isCorrect(int answerGiven) {
 
         boolean correctTrueOrFalse;
         if (answerGiven == correctAnswer) {
-           correctTrueOrFalse = true;
+            correctTrueOrFalse = true;
         } else {
             correctTrueOrFalse = false;
 
         }
-            return correctTrueOrFalse;
+        return correctTrueOrFalse;
     }
 
 
-
-    void updateScoreAndLevel(int answerGiven){
-        if(isCorrect(answerGiven)){
-            for(int i = 1; i <= currentLevel; i++){
+    void updateScoreAndLevel(int answerGiven) {
+        if (isCorrect(answerGiven)) {
+            for (int i = 1; i <= currentLevel; i++) {
                 currentScore = currentScore + i;
             }
             currentLevel++;
-        }
-        else{
+            score.setText("" + currentScore);
+            level.setText("" + currentLevel);
+            setQuestion();
 
-            if(currentScore > hiScore) {
+        } else {
+
+            final CustomGameOverDialog customGameOverDialog=new CustomGameOverDialog(this);
+            customGameOverDialog.setHighScore(currentScore+"");
+            customGameOverDialog.setCanceledOnTouchOutside(true);
+
+            customGameOverDialog.replay.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i(TAG, "GameOver Dialog: replay Button Tapped");
+                    customGameOverDialog.dismiss();
+                    startover();
+                }
+            });
+
+            customGameOverDialog.show();
+
+            // Set the HighScore if acheived
+            if (currentScore > hiScore) {
                 hiScore = currentScore;
-                hiLevel=currentLevel;
+                hiLevel = currentLevel;
                 editor.putInt(intName, hiScore);
                 editor.putInt(intName1, hiLevel);
                 editor.commit();
-                Toast.makeText(getApplicationContext(), "New Hiscore",
+                Toast.makeText(getApplicationContext(), "New Highscore",
                         Toast.LENGTH_SHORT).show();
             }
-            currentScore = 0;
-            currentLevel = 1;
+
+            customGameOverDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    Log.i(TAG, "GameOver dialog Dismissed: Starting Over");
+
+                    startover();
+                }
+            });
+
         }
 
+    }
+
+    private void startover() {
+        Log.i(TAG, "Starting over the game");
+
+        Toast.makeText(this,":Starting Over",Toast.LENGTH_SHORT).show();
+        currentScore = 0;
+        currentLevel = 1;
         score.setText("" + currentScore);
         level.setText("" + currentLevel);
         setQuestion();
-
     }
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        Log.i(TAG, "onBackPressed: fired ");
+        final CustomPauseDialog mCustomPauseDialog=new CustomPauseDialog(this);
+        mCustomPauseDialog.setScore(""+currentScore);
 
+        mCustomPauseDialog.resume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCustomPauseDialog.dismiss();
+            }
+        });
+
+        mCustomPauseDialog.show();
     }
 }
 

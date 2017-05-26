@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:ads="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/background_light">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
 
 
         <android.support.v7.widget.CardView
@@ -198,6 +198,14 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adViewGameScreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id2" />
+
 
     </LinearLayout>
 
@@ -256,6 +264,5 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
 
 </RelativeLayout>
