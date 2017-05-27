@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="gametut.googlelle.game_tut1.activity.AboutUsActivity">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="6dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/titleBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:scaleType="fitXY"
+                app:srcCompat="@mipmap/matrix" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/aboutUsImageLogo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@mipmap/ic_launcher" />
+
+                <TextView
+                    android:id="@+id/aboutUsAppTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/aboutUsImageLogo"
+                    android:layout_toRightOf="@+id/aboutUsImageLogo"
+                    android:layout_weight="1"
+                    android:padding="12dp"
+                    android:text="@string/app_name"
+                    android:textAlignment="center"
+                    android:textColor="@color/grey_100"
+                    android:textSize="24sp"
+                    android:textStyle="bold|italic" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="8dp">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:padding="10dp"
+            android:text="@string/project_description"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="16sp" />
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp"
+        android:text="Wanna Hire Me? Connect Below "
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="15sp" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/button8"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email:" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/email"
+                android:drawablePadding="6dp"
+                android:drawableTint="@color/darkred"
+                android:onClick="email"
+                android:padding="12dp"
+                android:text="rishabh0148@gmail.com"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/button9"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Twitter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/twitter"
+                android:drawablePadding="6dp"
+                android:onClick="twitter"
+                android:padding="8dp"
+                android:text="@ssrishabh96 "
+                android:textSize="16sp" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <Button
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Linkedin" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableLeft="@mipmap/linkedin"
+                android:drawablePadding="6dp"
+                android:onClick="linkedin"
+                android:padding="8dp"
+                android:text="Rishabh Agrawal"
+                android:textAlignment="textStart" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/com_facebook_button_login_silver_background_color"
+        android:elevation="1dp"
+        android:padding="12dp"
+        android:text="Check Out Other Apps on Play Store"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <Button
+                android:id="@+id/button12"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/com_facebook_button_login_silver_background_color_pressed"
+                android:onClick="mediaByte"
+                android:text="MediaBYTE" />
+
+            <Button
+                android:id="@+id/button11"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/tw__light_gray"
+                android:onClick="copySave"
+                android:padding="6dp"
+                android:text="Copy, Save " />
+
+            <Button
+                android:id="@+id/button13"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/grey_100"
+                android:onClick="moreApps"
+                android:text="More >>" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
