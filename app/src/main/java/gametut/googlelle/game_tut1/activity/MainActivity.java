@@ -238,9 +238,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showCredits(View view) {
         Log.i(TAG, "showCredits: fired ");
-        customizeDialog.setTitle("Author:");
-        customizeDialog.setMessage("Rishabh Agrawal");
-        customizeDialog.show();
+        startActivity(new Intent(this,AboutUsActivity.class));
 
     }
 
