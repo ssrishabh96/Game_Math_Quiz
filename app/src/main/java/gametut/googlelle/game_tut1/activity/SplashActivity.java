@@ -13,8 +13,7 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
-import com.sdsmdg.harjot.rotatingtext.RotatingTextWrapper;
-import com.sdsmdg.harjot.rotatingtext.models.Rotatable;
+
 
 import gametut.googlelle.game_tut1.R;
 
@@ -22,8 +21,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private static final long SPLASH_TIME = 1000;
     public static final String TAG=SplashActivity.class.getSimpleName();
-    private RotatingTextWrapper rotatingTextWrapper;
-    private Rotatable rotatable;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
