@@ -22,7 +22,9 @@ import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.ResultCodes;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.crash.FirebaseCrash;
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -192,8 +194,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadAds() {
         Log.i(TAG, "loadAds: fired ");
+        MobileAds.initialize(this,"ca-app-pub-9816038748687358~8649148824");
         AdView mAdView;
         mAdView = (AdView) findViewById(R.id.adView);
+        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdUnitId("ca-app-pub-9816038748687358/5416480822");
+
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }

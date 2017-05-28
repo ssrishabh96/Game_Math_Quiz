@@ -13,7 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.Random;
 
@@ -105,8 +107,11 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
 
     private void loadAds() {
         Log.i(TAG, "loadAds: fired ");
+        MobileAds.initialize(this,"ca-app-pub-9816038748687358~8649148824");
 
         mAdView = (AdView) findViewById(R.id.adViewGameScreen);
+        mAdView.setAdSize(AdSize.BANNER);
+        mAdView.setAdUnitId("ca-app-pub-9816038748687358/3939747625");
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
     }

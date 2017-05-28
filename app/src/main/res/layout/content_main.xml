@@ -122,7 +122,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
+            ></com.google.android.gms.ads.AdView>
 
         <TextView
             android:id="@+id/signInstatus"
