@@ -71,6 +71,8 @@
 
     <string name="project_description">The app is an old application project of mine. Its easy, fun, and a total time-killer. I hope you liked this app. Score higher &amp; higher. Make your simple math calculations faster by practising for few moments every now and then.</string>
 
+    <string name="splash_screen_reviews">- Best time killer App \n\n- Best brain exercise app \n\n- An amazing and suitable for kids as well\n\n- Helps keep brain active at all times</string>
+
     <string name="id_fmt">User ID: %s</string>
     <string name="email_fmt">Email: %s</string>
 

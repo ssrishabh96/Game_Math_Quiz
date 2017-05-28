@@ -67,7 +67,12 @@
         </service>
 
         <activity android:name=".activity.activity.UserDashboard" />
-        <activity android:name=".activity.AboutUsActivity" android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activity.AboutUsActivity"
+            android:parentActivityName=".activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTop"
+            ></activity>
     </application>
 
 </manifest>

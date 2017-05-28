@@ -10,12 +10,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -86,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         container1 = (RelativeLayout) findViewById(R.id.showBackround);
         anim = (AnimationDrawable) container1.getBackground();
 
-        if(anim!=null) {
+        if (anim != null) {
             anim.setEnterFadeDuration(3000);
             anim.setExitFadeDuration(1500);
         }
@@ -119,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         usernameKey = getResources().getString(R.string.username_key);
         hillevel = prefs.getInt(intName1, defaultInt);
         hiScore = prefs.getInt(intName, 0);
-        signInStatusTextView=(TextView) findViewById(R.id.signInstatus);
+        signInStatusTextView = (TextView) findViewById(R.id.signInstatus);
         Typeface tf = Typeface.createFromAsset(getAssets(), "fonts/satisfy.ttf");
         TextView playButton = (TextView) findViewById(R.id.appTitle);
         playButton.setTypeface(tf);
@@ -128,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (auth.getCurrentUser() != null) {
             // already signed in
-            signInStatusTextView.setText("Hey "+auth.getCurrentUser().getDisplayName());
+            signInStatusTextView.setText("Hey " + auth.getCurrentUser().getDisplayName());
         } else {
             // not signed in
             signInStatusTextView.setText("Not Signed In");
@@ -136,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void handleUserSignInStatus(){
+    private void handleUserSignInStatus() {
         Log.i(TAG, "handleUserSignInStatus: fired ");
 
         auth = FirebaseAuth.getInstance();
@@ -145,12 +142,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, UserDashboard.class));
         } else {
             // not signed in
-            Toast.makeText(this,"Sign in First",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Sign in First", Toast.LENGTH_SHORT).show();
             startActivityForResult(
                     AuthUI.getInstance()
                             .createSignInIntentBuilder()
                             .setProviders(Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
-                                    new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build())).setTheme(R.style.GreenTheme).build(),RC_SIGN_IN);
+                                    new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build())).setTheme(R.style.GreenTheme).build(), RC_SIGN_IN);
         }
 
 
@@ -165,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Successfully signed in
             if (resultCode == ResultCodes.OK) {
-                Toast.makeText(this,"Signed In",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Signed In", Toast.LENGTH_SHORT).show();
                 signInStatusTextView.setText("Signed In");
 
 
@@ -238,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showCredits(View view) {
         Log.i(TAG, "showCredits: fired ");
-        startActivity(new Intent(this,AboutUsActivity.class));
+        startActivity(new Intent(this, AboutUsActivity.class));
 
     }
 
@@ -273,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    void checkForInAppBilling(){
+    void checkForInAppBilling() {
         String base64EncodedPublicKey =
                 "<your license key here>";
 
@@ -281,8 +278,7 @@ public class MainActivity extends AppCompatActivity {
 
         mHelper.startSetup(new
                                    IabHelper.OnIabSetupFinishedListener() {
-                                       public void onIabSetupFinished(IabResult result)
-                                       {
+                                       public void onIabSetupFinished(IabResult result) {
                                            if (!result.isSuccess()) {
                                                Log.d(TAG, "In-app Billing setup failed: " +
                                                        result);
